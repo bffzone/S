@@ -62,7 +62,7 @@ def PlayWrapper(command):
         if await is_commanddelete_on(message.chat.id):
             try:
                 await message.delete()
-            except:
+            except Exception:
                 pass
 
         audio_telegram = (
@@ -92,7 +92,7 @@ def PlayWrapper(command):
                 return await message.reply_text(_["setting_12"])
             try:
                 chat = await app.get_chat(chat_id)
-            except:
+            except Exception:
                 return await message.reply_text(_["cplay_4"])
             channel = chat.title
         else:
@@ -134,9 +134,9 @@ def PlayWrapper(command):
             userbot = await get_assistant(message.chat.id)
             # Getting all members id that in voicechat
             call_participants_id = [
-                member.participant.id
-                async for member in userbot.load_group_call_participants(chat_id)
-                if member.participant
+                member.chat.id
+                async for member in userbot.get_call_members(chat_id)
+                if member.chat
             ]
             # Checking if assistant id not in list so clear queues and remove active voice chat and process
 
