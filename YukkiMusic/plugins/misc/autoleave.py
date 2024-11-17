@@ -54,9 +54,9 @@ async def auto_leave():
                                 try:
                                     await client.leave_chat(chat_id)
                                     left += 1
-                                except:
+                                except Exception:
                                     continue
-            except:
+            except Exception:
                 pass
 
         if config.AUTO_LEAVING_ASSISTANT == str(True):
@@ -81,7 +81,7 @@ async def auto_end():
                 members = []
 
                 try:
-                    async for member in userbot.load_group_call_participants(chat_id):
+                    async for member in userbot.get_call_members(chat_id):
                         if member is None:
                             continue
                         members.append(member)
@@ -101,7 +101,7 @@ async def auto_end():
                     try:
                         language = await get_lang(message.chat.id)
                         language = get_string(language)
-                    except:
+                    except Exception:
                         language = get_string("en")
                     try:
                         await app.send_message(
