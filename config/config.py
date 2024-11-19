@@ -32,7 +32,7 @@ BOT_TOKEN = getenv("BOT_TOKEN", "5799143538:AAEBrSH7-ddDS2JrjnIajq9aVtfcHF6SxRw"
 MONGO_DB_URI = getenv("MONGO_DB_URI", "mongodb+srv://ghoda:loda@cluster0.fgrpret.mongodb.net/?retryWrites=true&w=majority")
 
 # You can paste your cookies to https://batbin.me, save them, and get a link to paste here
-COOKIE_LINK = getenv("COOKIE_LINK", "https://batbin.me/musical")
+COOKIE_LINK = getenv("COOKIE_LINK", "https://batbin.me/retiled")
 CLEANMODE_DELETE_MINS = int(
     getenv("CLEANMODE_MINS", "5")
 )  # Remember to give value in Seconds
